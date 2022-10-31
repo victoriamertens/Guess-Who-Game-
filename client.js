@@ -7,6 +7,7 @@ function onReady(){
   //call intialRender in the onReady funcion to create the DOM 
   initialRender(); 
 //event listener for rendered event - click on photo, run clickedPhoto
+$('#starting-people').on('click','.image', clickedPhoto ); 
 } 
 
 let randomNumber = 0; 
@@ -22,12 +23,13 @@ $('#starting-people').append(`
 `)
 //loop through each of the people in the people array 
 //append img for each photo infomation into html
+//include a data.id for each, perhaps that corresponds to index
 for (let i = 0; i<people.length; i++){ 
   $('#starting-people').append(`
-  <div><img src="${people[i].imgSource}" data.id="${i}"></div>
+  <div><img class="image" src="${people[i].imgSource}" data-id="${i}"></div>
   `);
 }
-//include a data.id for each, perhaps that corresponds to index
+
 } 
 
 function randomNumberFunction (min, max){
@@ -35,9 +37,24 @@ function randomNumberFunction (min, max){
    } 
 
 
-//function clickedPhoto (){}
-//grab the information from the clicked item, data.id
-//set that information equal to a local variable
-//run a conditional, test if local variable is equal to randomNumber 
-//if true create an alert that says correct and tells to refresh page 
+ function clickedPhoto (){
+ //grab the information from the clicked item, data.id
+    //set that information equal to a local variable
+  let image = $(this);
+ let selectedImage = image.data().id; 
+ console.log('selectedImage=', selectedImage); 
+
+  //run a conditional, test if local variable is equal to randomNumber 
+  //if true create an alert that says correct and tells to refresh page 
 //if false alert try again 
+if(randomNumber === selectedImage){correctAlert()}
+else{incorrectAlert()}
+}
+
+function incorrectAlert(){ 
+  console.log("incorrect");
+}
+
+function correctAlert(){ 
+  console.log("correct");
+}
