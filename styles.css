@@ -1,0 +1,13 @@
+.image {
+  width: 250px;
+}
+
+#header {
+  display: block;
+}
+
+#starting-people {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
