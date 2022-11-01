@@ -63,8 +63,3 @@ function correctAlert() {
   alert('You got it! Click OK to play again!');
   initialRender();
 }
-//   replayGame();
-// }
-
-// function replayGame() {
-//   console.log('in replay');
